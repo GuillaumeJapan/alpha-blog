@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new' 
   #post 'users', to: 'users#create' # Create the missing route
   resources :users, except: [:new] # Create all the routes except the tailored one for the 'new' action
+  
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
    
 end
