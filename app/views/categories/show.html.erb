@@ -1,9 +1,11 @@
 <h1 align="center">List of articles in the category <%= @category.name %></h1>
 
 <% if logged_in? && current_user.admin? %>
-  <div class="row">
-    <div class="col-sm-2 col-sm-offset-5 badge">
-      <%= link_to "Edit category name", edit_category_path(@category) %>
+  <div class="row" align="center">
+    <div class="col-sm-4 col-sm-offset-4">
+      <span class="badge"><%= link_to "Edit category name", edit_category_path(@category) %> &nbsp;</span>
+      <%= link_to "Delete this category", category_path(@category), class: "btn btn-xs btn-danger", 
+                                                method: :delete, data: {confirm: "Are you sure?"} %>
     </div>
   </div>
 <% end %>
